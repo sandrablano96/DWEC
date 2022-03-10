@@ -1,0 +1,7 @@
+<h1>MiniCalculadora</h1>
+<input type="number" [(ngModel)]="numero1" class="form-control w-25">
+<input type="number" [(ngModel)]="numero2" class="form-control w-25">
+<p class="w-25 ms-3">{{resultado}}</p>
+<button (click)="sumar()" class="btn btn-primary m-1">Sumar</button>
+<button (click)="restar()"  class="btn btn-primary m-1 ">Restar</button>
+<button (click)="multiplicar()"  class="btn btn-primary m-1">Multiplicar</button>

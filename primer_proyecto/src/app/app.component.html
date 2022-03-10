@@ -1,0 +1,67 @@
+<h1>Ejercicio 1: {{ title }}</h1>
+<p class="prueba-color">JEJE</p>
+<p>{{descripcion}}</p>
+<span [hidden]="estaOculto">eeeeeeeeeeeey</span>
+
+<select>
+  <option [selected]="estaSeleccionado1" value="Coche">Coche</option>
+  <option [selected]="estaSeleccionado2" value="Moto">Moto</option>
+  <option [selected]="estaSeleccionado3" value="Camion">Camion</option>
+</select>
+
+<input type="radio" value="opt1" [checked]="estaSeleccionado4">Opcion 1
+<input type="radio" value="opt2" [checked]="estaSeleccionado5">Opcion 2
+
+<br>
+<br>
+<br>
+
+Opciones: {{ opcionMarcada }} <br>
+Opcion 1<input type="radio" value="Opcion1" name="opcion" (click)="setOption($event)">
+Opcion 2<input type="radio" value="Opcion2" name="opcion" (click)="setOption($event)">
+<br>
+<button (click)="saludar()">Saluda</button>
+
+<div (click)="saludar()">
+  <button (click)="saludar2($event)">Saluda</button>
+</div>
+
+<input type="text" #textoInput/> <br>
+{{textoParrafo}} <br>
+<button (click)="saludar3(textoInput.value)">Saluda</button>
+
+<br>
+
+<p>Tu nombre es {{nombre}}</p>
+<input type="text" [(ngModel)]="nombre">
+
+
+<h1>IF</h1>
+    <input type="text" [(ngModel)]="nombre2">
+    <button (click)="setNombre()">Poner nombre</button>
+    <h2 *ngIf="tieneNombre" [class.nombreEspecial]="esNombreEspecial()">{{nombre2}}</h2>
+    <h2 [ngClass]="{'nombreEspecial': esNombreEspecial(), 'nombreNormal':esNombreNormal()}"></h2>
+    <h2 *ngIf="nombres.length > 0; else sinNombre">Texto aleatorio</h2>
+
+<ng-template #sinNombre>
+  <h2>No hay ningun nombre añadido</h2>
+</ng-template>
+
+<h1>FOR</h1>
+<ul>
+  <li *ngFor="let nombreArray of nombres; let i=index;let esPar=even; let esImpar=odd;let esPrimero=first">{{i}}-{{nombreArray}}
+    <span *ngIf="esPar">Es par</span>
+    <span *ngIf="esPrimero">Es el primero</span>
+    <span *ngIf="esImpar">Es impar</span>
+  </li>
+</ul>
+
+<h1>Switch</h1>
+
+<div [ngSwitch]="nombres.length">
+  {{nombres.length}}
+  <p *ngSwitchCase="0">No hay ningun nombre</p>
+  <p *ngSwitchCase="5">Hay 5 nombres</p>
+  <p *ngSwitchDefault>Hay muchos</p>
+</div>
+

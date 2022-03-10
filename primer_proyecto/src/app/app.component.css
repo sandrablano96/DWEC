@@ -1,0 +1,17 @@
+h1{
+  color:red;
+  text-decoration: underline;
+  text-align: center;
+}
+.prueba-color{
+  color: green;
+}
+
+.nombreEspecial{
+  text-decoration: dotted;
+  font-weight: bold;
+  color:green
+}
+.nombreNormal{
+  color:red
+}
