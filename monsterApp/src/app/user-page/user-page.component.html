@@ -1,0 +1,22 @@
+<p>user-page works!</p>
+<div *ngIf="users">
+  <ul *ngFor="let user of users.data">
+    <img src="{{user.avatar}}">
+    <li> {{user.id}} </li>
+    <li> {{user.email}} </li>
+    <li> {{user.first_name}} </li>
+    <li> {{user.last_name}} </li>
+  </ul>
+
+</div>
+
+<div *ngIf="resources">
+  <ul *ngFor="let res of resources.data">
+    <li> {{res.id}} </li>
+    <li> {{res.name}} </li>
+    <li [ngStyle]="{'color':res.color}"> {{res.color}} </li>
+    <li> {{res.pantone_value}} </li>
+  </ul>
+
+</div>
+

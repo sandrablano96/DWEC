@@ -9,16 +9,42 @@
   <body>
     <h1>MonsterApp</h1>
     <form class="form w-50 m-auto p-3">
-
-      Nombre: <input type="text" id="nombre" name="nombre" #nombreMonstruo class="form-control mb-3" required/>
-      Vida: <input type="number" id="vida" name="vida" max="1000" #vidaMonstruo class="form-control mb-3" required/>
-      Raza: <select #razaMonstruo class="form-control mb-3" required>
+      Nombre:
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        #nombreMonstruo
+        class="form-control mb-3"
+        required
+      />
+      Vida:
+      <input
+        type="number"
+        id="vida"
+        name="vida"
+        max="1000"
+        #vidaMonstruo
+        class="form-control mb-3"
+        required
+      />
+      Raza:
+      <select #razaMonstruo class="form-control mb-3" required>
         <option value="orco">Orco</option>
         <option value="elfo">Elfo</option>
         <option value="enano">Enano</option>
         <option value="trasgo">Trasgo</option>
       </select>
-      Ataque: <input type="number" id="vida" name="vida" max="100" #ataqueMonstruo class="form-control mb-5" required/>
+      Ataque:
+      <input
+        type="number"
+        id="ataque"
+        name="ataque"
+        max="100"
+        #ataqueMonstruo
+        class="form-control mb-5"
+        required
+      />
       <input
         type="submit"
         value="Crear"
@@ -29,16 +55,22 @@
             razaMonstruo.value,
             ataqueMonstruo.value
           )
-        " class="btn btn-primary w-100"
+        "
+        class="btn btn-primary w-100"
       />
     </form>
 
-    <p class="alert alert-info w-50 m-auto" *ngIf="misMonstruos.length == 0; else monstruos">No hay ningun monstruo todavía</p>
+    <p
+      class="alert alert-info w-50 m-auto"
+      *ngIf="misMonstruos.length == 0; else monstruos"
+    >
+      No hay ningun monstruo todavía
+    </p>
+
     <ng-template #monstruos>
-    <ul class="list-group m-auto w-75" *ngFor="let monstruo of misMonstruos"  >
-      <li class="list-group-item" [ngClass]="{'list-group-item-danger': esOrcoTrasgo(monstruo),'list-group-item-primary': !esOrcoTrasgo(monstruo) }"> Nombre: {{ monstruo.nombre }} - Vida: {{ monstruo.vida }} - Raza: {{ monstruo.raza }} </li>
-    </ul>
+    <app-monster-c *ngFor="let monstruo of misMonstruos" [monsterEnviado]="monstruo"></app-monster-c>
     </ng-template>
 
+    <app-user-page></app-user-page>
   </body>
 </html>

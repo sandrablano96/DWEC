@@ -1,0 +1,16 @@
+
+<ul class="list-group m-auto w-75 mb-2">
+  <li
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-danger': esOrcoTrasgo(monsterEnviado),
+      'list-group-item-primary': !esOrcoTrasgo(monsterEnviado)
+    }"
+  >
+    Nombre: {{ monsterEnviado.nombre }} - Vida: {{ monsterEnviado.vida }} -
+    Raza:
+    {{ monsterEnviado.raza }}
+    <span class="badge bg-warning"> Ataque: {{ monsterEnviado.ataque }}</span>
+
+  </li>
+</ul>
